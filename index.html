@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LearnSmart - Interactive Learning Platform</title>
+    <title>ALEKS - Adaptive Learning & Assessment</title>
     <style>
         /* Reset and Base Styles */
         * {
@@ -42,13 +42,9 @@
         }
         
         .logo {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: 700;
             color: #2c5aa0;
-        }
-        
-        .logo span {
-            color: #f15a29;
         }
         
         nav ul {
@@ -258,126 +254,39 @@
             background-color: #1e4a8a;
         }
         
-        /* Login Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .modal-content {
+        /* Testimonials Section */
+        .testimonials {
+            padding: 80px 0;
             background-color: white;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: #f9fafc;
             border-radius: 8px;
-            width: 100%;
-            max-width: 450px;
             padding: 30px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
         
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .testimonial-text {
+            font-style: italic;
             margin-bottom: 20px;
-        }
-        
-        .modal-header h2 {
-            color: #2c5aa0;
-        }
-        
-        .close-modal {
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: #777;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
             color: #555;
         }
         
-        .form-group input {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-        
-        .form-group input:focus {
-            outline: none;
-            border-color: #2c5aa0;
-        }
-        
-        .submit-btn {
-            width: 100%;
-            background-color: #2c5aa0;
-            color: white;
-            border: none;
-            padding: 12px;
-            border-radius: 4px;
-            font-size: 16px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        
-        .submit-btn:hover {
-            background-color: #1e4a8a;
-        }
-        
-        .form-footer {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 14px;
-            color: #666;
-        }
-        
-        .form-footer a {
-            color: #2c5aa0;
-            text-decoration: none;
-        }
-        
-        /* Dashboard Styles */
-        .dashboard {
-            display: none;
-            padding: 40px 0;
-        }
-        
-        .dashboard-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-        }
-        
-        .dashboard-header h1 {
-            color: #2c5aa0;
-        }
-        
-        .user-info {
+        .testimonial-author {
             display: flex;
             align-items: center;
         }
         
-        .user-avatar {
-            width: 40px;
-            height: 40px;
+        .author-avatar {
+            width: 50px;
+            height: 50px;
             background-color: #e6efff;
             border-radius: 50%;
             display: flex;
@@ -385,172 +294,12 @@
             justify-content: center;
             color: #2c5aa0;
             font-weight: bold;
-            margin-right: 10px;
+            margin-right: 15px;
         }
         
-        .progress-section {
-            background-color: white;
-            border-radius: 8px;
-            padding: 25px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            margin-bottom: 30px;
-        }
-        
-        .progress-title {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        
-        .progress-title h2 {
+        .author-info h4 {
             color: #2c5aa0;
-            font-size: 22px;
-        }
-        
-        .progress-bar {
-            height: 10px;
-            background-color: #e6efff;
-            border-radius: 5px;
-            overflow: hidden;
-            margin-bottom: 10px;
-        }
-        
-        .progress-fill {
-            height: 100%;
-            background-color: #2c5aa0;
-            width: 65%;
-        }
-        
-        .progress-text {
-            display: flex;
-            justify-content: space-between;
-            font-size: 14px;
-            color: #666;
-        }
-        
-        .topics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 20px;
-        }
-        
-        .topic-card {
-            background-color: white;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            text-align: center;
-            transition: transform 0.3s;
-            cursor: pointer;
-        }
-        
-        .topic-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .topic-icon {
-            font-size: 40px;
-            color: #2c5aa0;
-            margin-bottom: 15px;
-        }
-        
-        .topic-card h3 {
-            margin-bottom: 10px;
-            color: #2c5aa0;
-        }
-        
-        .topic-status {
-            font-size: 14px;
-            color: #666;
-        }
-        
-        /* Assessment Styles */
-        .assessment {
-            display: none;
-            padding: 40px 0;
-        }
-        
-        .assessment-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-        }
-        
-        .assessment-header h1 {
-            color: #2c5aa0;
-        }
-        
-        .question-card {
-            background-color: white;
-            border-radius: 8px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            margin-bottom: 30px;
-        }
-        
-        .question-text {
-            font-size: 18px;
-            margin-bottom: 25px;
-            color: #333;
-        }
-        
-        .answer-options {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-        
-        .answer-option {
-            padding: 15px;
-            border: 2px solid #e6efff;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .answer-option:hover {
-            border-color: #2c5aa0;
-            background-color: #f0f4ff;
-        }
-        
-        .answer-option.selected {
-            border-color: #2c5aa0;
-            background-color: #e6efff;
-        }
-        
-        .assessment-controls {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 30px;
-        }
-        
-        .control-btn {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-        
-        .back-btn {
-            background-color: #f5f7fa;
-            color: #666;
-        }
-        
-        .next-btn {
-            background-color: #2c5aa0;
-            color: white;
-        }
-        
-        .back-btn:hover {
-            background-color: #e6e9ef;
-        }
-        
-        .next-btn:hover {
-            background-color: #1e4a8a;
+            margin-bottom: 5px;
         }
         
         /* Footer */
@@ -617,11 +366,7 @@
                 font-size: 32px;
             }
             
-            .answer-options {
-                grid-template-columns: 1fr;
-            }
-            
-            .features-grid, .subjects-grid {
+            .features-grid, .subjects-grid, .testimonials-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -632,12 +377,13 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="logo">Learn<span>Smart</span></div>
+                <div class="logo">ALEKS</div>
                 <nav>
                     <ul>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#features">How It Works</a></li>
                         <li><a href="#subjects">Subjects</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
                         <li><a href="#about">About</a></li>
                     </ul>
                 </nav>
@@ -652,9 +398,9 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
-            <h1>Personalized Learning for Every Student</h1>
-            <p>Our adaptive learning platform assesses your knowledge and creates a customized learning path to help you master subjects at your own pace.</p>
-            <a href="#" class="cta-button" id="startLearningBtn">Start Learning Now</a>
+            <h1>Accelerate Student Achievement with ALEKS</h1>
+            <p>ALEKS is an adaptive learning platform that uses artificial intelligence to assess and precisely track student knowledge. It then creates personalized learning paths to help students master concepts at their own pace.</p>
+            <a href="main.html" class="cta-button">Start Learning Now</a>
         </div>
     </section>
 
@@ -662,24 +408,29 @@
     <section class="features" id="features">
         <div class="container">
             <div class="section-title">
-                <h2>How LearnSmart Works</h2>
+                <h2>How ALEKS Works</h2>
                 <p>Our platform uses adaptive technology to identify what you know and what you're ready to learn next.</p>
             </div>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">1</div>
-                    <h3>Initial Assessment</h3>
-                    <p>Take a quick assessment to determine your current knowledge level in any subject.</p>
+                    <h3>Initial Knowledge Check</h3>
+                    <p>ALEKS begins with an initial knowledge check to accurately determine what a student knows, doesn't know, and is ready to learn next.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">2</div>
                     <h3>Personalized Learning Path</h3>
-                    <p>Receive a customized learning path that focuses on the topics you need to master.</p>
+                    <p>Based on the assessment results, ALEKS creates a personalized learning path with the topics the student is ready to learn.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">3</div>
-                    <h3>Master Topics</h3>
-                    <p>Work through interactive lessons and practice problems to master each concept.</p>
+                    <h3>Mastery-Based Learning</h3>
+                    <p>Students work through their learning path, mastering each topic through practice problems and explanations.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">4</div>
+                    <h3>Continuous Assessment</h3>
+                    <p>ALEKS periodically reassesses students to ensure retention and to update their knowledge state.</p>
                 </div>
             </div>
         </div>
@@ -689,189 +440,90 @@
     <section class="subjects" id="subjects">
         <div class="container">
             <div class="section-title">
-                <h2>Explore Our Subjects</h2>
-                <p>Choose from a wide range of subjects tailored to different educational levels.</p>
+                <h2>Comprehensive Course Offerings</h2>
+                <p>ALEKS offers courses for K-12, Higher Education, and Continuing Education.</p>
             </div>
             <div class="subjects-grid">
                 <div class="subject-card">
-                    <div class="subject-image">π</div>
+                    <div class="subject-image">K-12</div>
                     <div class="subject-content">
-                        <h3>Mathematics</h3>
-                        <p>From basic arithmetic to advanced calculus, build your math skills step by step.</p>
-                        <a href="#" class="subject-button" data-subject="math">Start Learning</a>
+                        <h3>K-12 Mathematics</h3>
+                        <p>Comprehensive math courses from elementary math through Pre-Calculus, aligned to state standards.</p>
+                        <a href="main.html" class="subject-button">Explore Courses</a>
                     </div>
                 </div>
                 <div class="subject-card">
-                    <div class="subject-image">H₂O</div>
+                    <div class="subject-image">HE</div>
                     <div class="subject-content">
-                        <h3>Chemistry</h3>
-                        <p>Explore the building blocks of matter through interactive lessons and virtual labs.</p>
-                        <a href="#" class="subject-button" data-subject="chemistry">Start Learning</a>
+                        <h3>Higher Education</h3>
+                        <p>Math, business, and science courses for college students, from developmental math to upper-level courses.</p>
+                        <a href="main.html" class="subject-button">Explore Courses</a>
                     </div>
                 </div>
                 <div class="subject-card">
-                    <div class="subject-image">F=ma</div>
+                    <div class="subject-image">SCI</div>
                     <div class="subject-content">
-                        <h3>Physics</h3>
-                        <p>Understand the laws that govern the universe with practical examples and simulations.</p>
-                        <a href="#" class="subject-button" data-subject="physics">Start Learning</a>
+                        <h3>Science Courses</h3>
+                        <p>Chemistry, anatomy & physiology, and introductory physics courses with adaptive learning technology.</p>
+                        <a href="main.html" class="subject-button">Explore Courses</a>
                     </div>
                 </div>
                 <div class="subject-card">
-                    <div class="subject-image">DNA</div>
+                    <div class="subject-image">BUS</div>
                     <div class="subject-content">
-                        <h3>Biology</h3>
-                        <p>Dive into the study of life, from cellular processes to complex ecosystems.</p>
-                        <a href="#" class="subject-button" data-subject="biology">Start Learning</a>
+                        <h3>Business Statistics</h3>
+                        <p>Comprehensive business statistics course that prepares students for data-driven decision making.</p>
+                        <a href="main.html" class="subject-button">Explore Courses</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Login Modal -->
-    <div class="modal" id="loginModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Log In to LearnSmart</h2>
-                <button class="close-modal">&times;</button>
-            </div>
-            <form id="loginForm">
-                <div class="form-group">
-                    <label for="username">Username or Email</label>
-                    <input type="text" id="username" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" required>
-                </div>
-                <button type="submit" class="submit-btn">Log In</button>
-            </form>
-            <div class="form-footer">
-                <p>Don't have an account? <a href="#" id="switchToSignup">Sign up here</a></p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Signup Modal -->
-    <div class="modal" id="signupModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Create Your LearnSmart Account</h2>
-                <button class="close-modal">&times;</button>
-            </div>
-            <form id="signupForm">
-                <div class="form-group">
-                    <label for="fullName">Full Name</label>
-                    <input type="text" id="fullName" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="newPassword">Password</label>
-                    <input type="password" id="newPassword" required>
-                </div>
-                <div class="form-group">
-                    <label for="confirmPassword">Confirm Password</label>
-                    <input type="password" id="confirmPassword" required>
-                </div>
-                <button type="submit" class="submit-btn">Create Account</button>
-            </form>
-            <div class="form-footer">
-                <p>Already have an account? <a href="#" id="switchToLogin">Log in here</a></p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Dashboard (Hidden by default) -->
-    <section class="dashboard" id="dashboard">
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
         <div class="container">
-            <div class="dashboard-header">
-                <h1>Your Learning Dashboard</h1>
-                <div class="user-info">
-                    <div class="user-avatar">JS</div>
-                    <span>John Student</span>
-                </div>
+            <div class="section-title">
+                <h2>What Educators Are Saying</h2>
+                <p>Hear from teachers and professors who have transformed their classrooms with ALEKS.</p>
             </div>
-            
-            <div class="progress-section">
-                <div class="progress-title">
-                    <h2>Mathematics Progress</h2>
-                    <span>65% Mastered</span>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "ALEKS has completely transformed how I teach mathematics. The personalized learning paths ensure that each student gets exactly what they need, when they need it."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MJ</div>
+                        <div class="author-info">
+                            <h4>Maria Johnson</h4>
+                            <p>High School Math Teacher</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="progress-bar">
-                    <div class="progress-fill"></div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "The detailed reporting in ALEKS allows me to quickly identify struggling students and provide targeted interventions. It's like having a teaching assistant for every student."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RS</div>
+                        <div class="author-info">
+                            <h4>Robert Smith</h4>
+                            <p>College Professor</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="progress-text">
-                    <span>Topics Mastered: 13/20</span>
-                    <span>Next Assessment: In 2 days</span>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "My students love the immediate feedback and the ability to work at their own pace. ALEKS has increased engagement and achievement in my classroom."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AD</div>
+                        <div class="author-info">
+                            <h4>Amanda Davis</h4>
+                            <p>Middle School Teacher</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            
-            <h2 style="margin-bottom: 20px; color: #2c5aa0;">Your Learning Path</h2>
-            <div class="topics-grid">
-                <div class="topic-card" data-topic="algebra">
-                    <div class="topic-icon">x+y</div>
-                    <h3>Algebra Basics</h3>
-                    <p class="topic-status">Completed</p>
-                </div>
-                <div class="topic-card" data-topic="equations">
-                    <div class="topic-icon">=</div>
-                    <h3>Linear Equations</h3>
-                    <p class="topic-status">Completed</p>
-                </div>
-                <div class="topic-card" data-topic="functions">
-                    <div class="topic-icon">f(x)</div>
-                    <h3>Functions</h3>
-                    <p class="topic-status">In Progress</p>
-                </div>
-                <div class="topic-card" data-topic="quadratics">
-                    <div class="topic-icon">x²</div>
-                    <h3>Quadratic Equations</h3>
-                    <p class="topic-status">Ready to Learn</p>
-                </div>
-                <div class="topic-card" data-topic="polynomials">
-                    <div class="topic-icon">P(x)</div>
-                    <h3>Polynomials</h3>
-                    <p class="topic-status">Ready to Learn</p>
-                </div>
-                <div class="topic-card" data-topic="exponents">
-                    <div class="topic-icon">aⁿ</div>
-                    <h3>Exponents & Logarithms</h3>
-                    <p class="topic-status">Locked</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Assessment (Hidden by default) -->
-    <section class="assessment" id="assessment">
-        <div class="container">
-            <div class="assessment-header">
-                <h1>Mathematics Assessment</h1>
-                <div class="user-info">
-                    <div class="user-avatar">JS</div>
-                    <span>Question 3 of 10</span>
-                </div>
-            </div>
-            
-            <div class="question-card">
-                <div class="question-text">
-                    <p>Solve for x: 3(x - 4) = 2x + 5</p>
-                </div>
-                <div class="answer-options">
-                    <div class="answer-option" data-answer="A">x = 7</div>
-                    <div class="answer-option" data-answer="B">x = 9</div>
-                    <div class="answer-option" data-answer="C">x = 11</div>
-                    <div class="answer-option" data-answer="D">x = 17</div>
-                </div>
-            </div>
-            
-            <div class="assessment-controls">
-                <button class="control-btn back-btn">Previous Question</button>
-                <button class="control-btn next-btn">Next Question</button>
             </div>
         </div>
     </section>
@@ -881,21 +533,21 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>LearnSmart</h3>
+                    <h3>ALEKS</h3>
                     <ul>
-                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">About ALEKS</a></li>
                         <li><a href="#">How It Works</a></li>
                         <li><a href="#">Success Stories</a></li>
                         <li><a href="#">Careers</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h3>Subjects</h3>
+                    <h3>Products</h3>
                     <ul>
-                        <li><a href="#">Mathematics</a></li>
-                        <li><a href="#">Science</a></li>
-                        <li><a href="#">Business</a></li>
-                        <li><a href="#">Languages</a></li>
+                        <li><a href="#">K-12 Mathematics</a></li>
+                        <li><a href="#">Higher Education</a></li>
+                        <li><a href="#">Science Courses</a></li>
+                        <li><a href="#">Business Statistics</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -918,145 +570,19 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 LearnSmart. All rights reserved.</p>
+                <p>&copy; 2023 ALEKS Corporation. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // DOM Elements
-        const loginBtn = document.getElementById('loginBtn');
-        const signupBtn = document.getElementById('signupBtn');
-        const loginModal = document.getElementById('loginModal');
-        const signupModal = document.getElementById('signupModal');
-        const closeModalButtons = document.querySelectorAll('.close-modal');
-        const switchToSignup = document.getElementById('switchToSignup');
-        const switchToLogin = document.getElementById('switchToLogin');
-        const startLearningBtn = document.getElementById('startLearningBtn');
-        const subjectButtons = document.querySelectorAll('.subject-button');
-        const topicCards = document.querySelectorAll('.topic-card');
-        const answerOptions = document.querySelectorAll('.answer-option');
-        const dashboard = document.getElementById('dashboard');
-        const assessment = document.getElementById('assessment');
-        
-        // Show Login Modal
-        loginBtn.addEventListener('click', () => {
-            loginModal.style.display = 'flex';
+        // Simple redirect functionality for buttons
+        document.getElementById('loginBtn').addEventListener('click', function() {
+            alert('This is a demo. In a real implementation, this would open a login modal.');
         });
         
-        // Show Signup Modal
-        signupBtn.addEventListener('click', () => {
-            signupModal.style.display = 'flex';
-        });
-        
-        // Close Modals
-        closeModalButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                loginModal.style.display = 'none';
-                signupModal.style.display = 'none';
-            });
-        });
-        
-        // Switch between Login and Signup modals
-        switchToSignup.addEventListener('click', (e) => {
-            e.preventDefault();
-            loginModal.style.display = 'none';
-            signupModal.style.display = 'flex';
-        });
-        
-        switchToLogin.addEventListener('click', (e) => {
-            e.preventDefault();
-            signupModal.style.display = 'none';
-            loginModal.style.display = 'flex';
-        });
-        
-        // Close modal when clicking outside
-        window.addEventListener('click', (e) => {
-            if (e.target === loginModal) {
-                loginModal.style.display = 'none';
-            }
-            if (e.target === signupModal) {
-                signupModal.style.display = 'none';
-            }
-        });
-        
-        // Login Form Submission
-        document.getElementById('loginForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            // In a real application, you would validate credentials here
-            // For this demo, we'll just show the dashboard
-            loginModal.style.display = 'none';
-            document.querySelector('header').style.display = 'none';
-            document.querySelector('.hero').style.display = 'none';
-            document.querySelector('.features').style.display = 'none';
-            document.querySelector('.subjects').style.display = 'none';
-            document.querySelector('footer').style.display = 'none';
-            dashboard.style.display = 'block';
-        });
-        
-        // Signup Form Submission
-        document.getElementById('signupForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            // In a real application, you would create a new account here
-            // For this demo, we'll just show the dashboard
-            signupModal.style.display = 'none';
-            document.querySelector('header').style.display = 'none';
-            document.querySelector('.hero').style.display = 'none';
-            document.querySelector('.features').style.display = 'none';
-            document.querySelector('.subjects').style.display = 'none';
-            document.querySelector('footer').style.display = 'none';
-            dashboard.style.display = 'block';
-        });
-        
-        // Start Learning Button
-        startLearningBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            signupModal.style.display = 'flex';
-        });
-        
-        // Subject Buttons
-        subjectButtons.forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
-                signupModal.style.display = 'flex';
-            });
-        });
-        
-        // Topic Cards - Start Assessment
-        topicCards.forEach(card => {
-            card.addEventListener('click', () => {
-                const status = card.querySelector('.topic-status').textContent;
-                if (status === 'Ready to Learn' || status === 'In Progress') {
-                    dashboard.style.display = 'none';
-                    assessment.style.display = 'block';
-                }
-            });
-        });
-        
-        // Answer Selection
-        answerOptions.forEach(option => {
-            option.addEventListener('click', () => {
-                // Remove selected class from all options
-                answerOptions.forEach(opt => opt.classList.remove('selected'));
-                // Add selected class to clicked option
-                option.classList.add('selected');
-            });
-        });
-        
-        // Next Question Button
-        document.querySelector('.next-btn').addEventListener('click', () => {
-            // In a real application, this would load the next question
-            // For this demo, we'll just show an alert and go back to dashboard
-            alert('Assessment completed! Returning to dashboard.');
-            assessment.style.display = 'none';
-            dashboard.style.display = 'block';
-        });
-        
-        // Previous Question Button
-        document.querySelector('.back-btn').addEventListener('click', () => {
-            // In a real application, this would go to the previous question
-            // For this demo, we'll just show an alert
-            alert('Going to previous question.');
+        document.getElementById('signupBtn').addEventListener('click', function() {
+            alert('This is a demo. In a real implementation, this would open a signup modal.');
         });
     </script>
 </body>
